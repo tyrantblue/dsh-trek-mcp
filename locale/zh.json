@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "TREK MCP",
+    "description": "通过 MCP 连接你的 TREK 旅行规划：在设置里填端点、机器客户端 ID 与密钥，token 与 MCP 会话自动管理。"
+  }
+}

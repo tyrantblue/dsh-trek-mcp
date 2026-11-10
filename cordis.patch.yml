@@ -1,0 +1,38 @@
+# dsh-trek-mcp bundle rows.
+#
+# These are the values a fresh install boots with. The Settings -> TREK MCP page
+# writes the endpoint, client id and client secret into the harness profile
+# patch (not into this file) and reloads the broker row. Never put credentials
+# in a published patch: the page is the place to enter them.
+- insert:
+    # The row named after the package carries the browser half (the Settings
+    # page). The client-module scanner only inspects rows whose specifier is an
+    # exact package name.
+    - id: trek-mcp-ui
+      name: 'dsh-trek-mcp'
+    - id: trek-mcp-broker
+      name: 'dsh-trek-mcp/broker'
+      config:
+        # MCP endpoint of the TREK instance (the docker default is loopback).
+        endpoint: http://127.0.0.1:3000/mcp
+        # Filled in from Settings -> TREK MCP. Empty here on purpose.
+        clientId: ''
+        clientSecret: ''
+        # Loopback port the broker proxies on; keep the mcp-client URL below in sync.
+        listenPort: 17890
+        # scope: ''  # optional: narrow the token, e.g. 'trips:read places:read'
+    - id: trek-mcp
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        serverName: trek
+        transport: streamable-http
+        url: http://127.0.0.1:17890/mcp
+        # The broker row and this row activate concurrently, so the first
+        # connection can race the broker's listen(). Let the supervisor's
+        # reconnect pick it up instead of failing the row.
+        failOnStartupError: false
+        reconnect:
+          enabled: true
+          initialDelayMs: 300
+          maxDelayMs: 10000
+          maxAttempts: 20

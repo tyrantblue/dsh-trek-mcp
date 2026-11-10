@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="TREK MCP">
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="#0f766e"/>
+  <path d="M10 46 24 26l9 12 6-8 15 16Z" fill="#e6fffa"/>
+  <circle cx="18" cy="19" r="4" fill="#fbbf24"/>
+  <path d="M39 41c4-2 8-2 12 0" fill="none" stroke="#99f6e4" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 6"/>
+  <circle cx="45" cy="43" r="3" fill="#5eead4"/>
+</svg>

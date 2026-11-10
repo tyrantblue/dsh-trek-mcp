@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "TREK MCP",
+    "description": "Connect your TREK travel planner over MCP: enter the endpoint, machine-client id and secret in Settings; tokens and sessions are managed automatically."
+  }
+}

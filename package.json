@@ -1,0 +1,67 @@
+{
+  "name": "dsh-trek-mcp",
+  "version": "1.0.0",
+  "description": "TREK travel planner over MCP for DeepSeek Harness: a Settings page for the endpoint and TREK machine-client credentials, automatic short-lived tokens, and idle-session recovery.",
+  "type": "module",
+  "license": "MIT",
+  "author": "tyrantblue",
+  "keywords": [
+    "dsh-plugin",
+    "dsh",
+    "deepseek-harness",
+    "mcp",
+    "trek",
+    "travel",
+    "travel-planner",
+    "oauth",
+    "model-context-protocol"
+  ],
+  "homepage": "https://github.com/tyrantblue/dsh-trek-mcp#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tyrantblue/dsh-trek-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tyrantblue/dsh-trek-mcp/issues"
+  },
+  "engines": {
+    "dsh": ">=0.2.2-rc.1 <0.3.0-0"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./broker": "./broker.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "broker.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "README.zh.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-slots",
+        "@deepseek-ai/dsh-client-locale"
+      ]
+    }
+  }
+}
